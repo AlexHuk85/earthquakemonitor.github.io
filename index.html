@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthquake Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Earthquake Monitoring Dashboard</h1>
+        <div class="controls">
+            <select id="timeRange">
+                <option value="hour">Past Hour</option>
+                <option value="day" selected>Past Day</option>
+                <option value="week">Past Week</option>
+                <option value="month">Past Month</option>
+            </select>
+            <select id="minMagnitude">
+                <option value="1">M1.0+</option>
+                <option value="2.5" selected>M2.5+</option>
+                <option value="4.5">M4.5+</option>
+                <option value="6">M6.0+</option>
+            </select>
+            <button id="refreshBtn">Refresh Data</button>
+            <button id="autoRefreshBtn">Enable Auto-Refresh (10s)</button>
+            <div id="refreshStatus"></div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="earthquakeChart"></canvas>
+        </div>
+        
+        <div class="map-container">
+            <div id="earthquakeMap"></div>
+        </div>
+        
+        <div class="earthquake-list">
+            <h2>Recent Earthquakes</h2>
+            <table id="earthquakeTable">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Magnitude</th>
+                        <th>Depth</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="earthquakeTableBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
